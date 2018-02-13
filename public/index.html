@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MarkerVille</title>   
+    <link rel="stylesheet" href="css/style.css"/>
+    <script src="js/jquery.js"> </script>
+    <script src="js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/result.js" defer></script>
+    <script src="js/about.js" defer></script>
+    <script src="js/forum.js" defer></script>
+    <script src="js/database.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/fetchData.js" defer></script>
+    <script src="js/fetchForum.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.jqueryui.min.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.15/js/dataTables.jqueryui.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.jqueryui.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+       <script type="text/javascript" charset="utf8" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/vfs_fonts.js"></script>
+      <script type="text/javascript" charset="utf8" src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/pdfmake.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.print.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.colVis.min.js"></script>
+    </head>
+
+      <body>
+          <div class = "navBar">
+              <div class = "button" id = "databaseButton" > Biomarker Search  </div>
+              <div class = "button" id = "forumButton">  Forum </div>
+              <div class = "button" id = "aboutButton"> About  </div>
+          </div>
+
+          <div id =  "forum" class="inactive">
+
+
+          <div id = "forum-table-cont">
+            <div id = "message-post-cont">
+              <!-- onsubmit="return false" -->
+            <form id="forumForm">
+            <input type = "text" id = "message-post"  placeholder="Question here"onblur="this.placeholder='Question here'" onfocus="this.placeholder = ''"> </input>
+          </form>
+        
+            </div>
+        </div>
+
+          </div>
+          <div id =  "aboutPage" class="inactive">
+            <p> Markerville is a web-hosted database that displays information about biomarkers.
+            Allows users to search and edit existing information, while adding new entries of their own.
+            We aim to create a community around biomarkers in the clinical research world and beyond. 
+
+            We are powered by Snorkel, an NLP pipeline package written in Python and developed by Stanford's Info Lab.
+
+            Developed by Mallick Lab at the Canary Center for Cancer Early Detection, Stanford University School of Medicine.
+            Built with Node.js, Express, and MySQL. Thanks for visiting! More coming soon. </p>
+            <div id = "aboutPic">
+            <img id = "gautam" src = "images/gautam.jpg"></img>
+          </div>
+              <div class = "logo-cont">
+            <img class = "logo" src = "images/logo.png"> </img>
+          </div>
+          </div>
+          <div id = "result" class="inactive">
+            <button id="showNextResults">Show next 100</button>
+
+              <div id = "result-table-cont">
+
+               <table id ="testid" class="display" cellspacing="0" width="100%">  
+               <thead>
+               <th> A
+                <th> B
+                <th> C 
+                <th> D
+                <th> E
+                 </tr>
+               </thead>
+               <tbody>
+             
+               </tbody> 
+                     
+             </table>
+      
+             <script type="text/javascript">
+            $(document).ready( function () {
+                              $('#testid').DataTable();
+            
+            } );
+            </script>
+               <script type="text/javascript">
+                    var table = $('#testid').DataTable( {
+                    processing: true,
+                      'language':{ 
+                         "loadingRecords": "&nbsp;",
+                         "processing": "Loading..."
+                      },
+                         autoWidth: false,
+                        buttons: [ 'copy', 'excel', 'colvis' ]
+                    } );
+
+                    table.buttons().container()
+                        .insertBefore( '#testid_filter' );
+                </script>
+        
+
+           </div>
+          </div>
+
+          <div id = "database">
+
+              <p> Welcome to MarkerVille! <br>Search by biomarker, drug, or cancer type: </p>
+              <div>
+                <!-- onsubmit="return false" -->
+
+              <form id="searchForm">
+                <input type= "text" id="word-input" placeholder="Enter search here"onblur="this.placeholder='Enter search here'" onfocus="this.placeholder = ''"/>
+              </form>
+              </div>
+              <div class = "logo-cont">
+                <img class="logo" src = "images/logo.png"> </img>
+              </div>
+        </div>
+
+  </body>
+</html>
